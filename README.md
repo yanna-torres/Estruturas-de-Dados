@@ -3,7 +3,11 @@ Códigos base de diversos tipos de estrutura de dados. Todos desenvolvidos duran
 
 
 ## Listas
-Os tipos de listas que podem ser encontrados são: lista simples, lista simplesmente encadeada e lista duplamente encadeada
+> Os tipos de listas que podem ser encontrados são: lista simples, lista simplesmente encadeada e lista duplamente encadeada
+
+[Acesse a pasta!](https://github.com/yanna-torres/Estruturas-de-Dados/tree/master/Lists)
 
 ## Pilha e Fila
-No momento, pode ser encontrado o código básico de pilha e fila
+> No momento, pode ser encontrado o código básico de pilha e fila
+
+[Acesse a pasta!]()
