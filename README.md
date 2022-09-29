@@ -1,6 +1,6 @@
 # Estruturas-de-Dados
 
-<image src="4117022.jpg" alt="Ilustração de dados" width="200" height="200">
+<image src="4117022.jpg" alt="Ilustração de dados" width="500" height="500">
 
 Códigos base de diversos tipos de estrutura de dados. Todos desenvolvidos durante a disciplina de 'Estruturas de Dados' do curso de Sistemas e Mídias Digitais, na UFC
 
