@@ -1,4 +1,7 @@
 # Estruturas-de-Dados
+
+![Ilustração de dados](4117022.jpg)
+
 Códigos base de diversos tipos de estrutura de dados. Todos desenvolvidos durante a disciplina de 'Estruturas de Dados' do curso de Sistemas e Mídias Digitais, na UFC
 
 
