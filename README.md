@@ -10,4 +10,4 @@ Códigos base de diversos tipos de estrutura de dados. Todos desenvolvidos duran
 ## Pilha e Fila
 > No momento, pode ser encontrado o código básico de pilha e fila
 
-[Acesse a pasta!](https://github.com/yanna-torres/Estruturas-de-Dados/tree/master/Stack%20and%20Queue)
+[Acesse a pasta!](/Stack%20and%20Queue)
