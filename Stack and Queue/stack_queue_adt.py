@@ -64,3 +64,44 @@ class QueueEdADT(ABC):
     def get_size(self):
         """Retorna o tamanho da fila"""
         pass
+class DequeADT(ABC):
+
+    @abstractmethod
+    def add_first(self, elem):
+        """Insere <elemento> na frente"""
+        pass
+
+    @abstractmethod
+    def add_last(self, elem):
+        """Insere <elemento> atras do deque"""
+        pass
+
+    @abstractmethod
+    def remove_first(self):
+        """Remove <elemento> da frente"""
+        pass
+
+    @abstractmethod
+    def remove_last(self):
+        """Remove <elemento> de tras"""
+        pass
+
+    @abstractmethod
+    def first(self):
+        """Verifica qual <elemento> esta na frente"""
+        pass
+
+    @abstractmethod
+    def last(self):
+        """Verifica qual <elemento> esta no fim"""
+        pass
+
+    @abstractmethod
+    def is_empty(self):
+        """Verfica se o deque esta vazio"""
+        pass
+
+    @abstractmethod
+    def get_size(self):
+        """Retorna o tamanho do deque"""
+        pass
