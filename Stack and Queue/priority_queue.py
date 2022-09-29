@@ -21,12 +21,9 @@ class PriorityQueue(PriorityQueueADT):
         if self.is_empty():
             raise EmptyStructure("Queue is empty")
         result = self._data[0]
-        pos = 0
-        while pos < len(self._data):
-            item = self._data[pos]
-            if item[0] < result[0]:
-                result = item
-            pos += 1
+        for e in self._data:
+            if e[0] < result[0]:
+                result = e
         return result
 
     def remove_min(self):
