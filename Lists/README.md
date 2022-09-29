@@ -1,5 +1,5 @@
 # Listas
 
 <div align="center">
-<image scr="2810820.jpg" width="200">
+<image src="2810820.jpg" alt="Ilustração de lista" width="500" height="500">
 </div>
