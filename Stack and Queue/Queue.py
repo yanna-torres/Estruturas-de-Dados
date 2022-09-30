@@ -1,5 +1,5 @@
 
-from stack_queue_adt import QueueEdADT, EmptyStack
+from stack_queue_adt import QueueEdADT, EmptyStructure
 
 
 class Queue(QueueEdADT):
@@ -18,12 +18,12 @@ class Queue(QueueEdADT):
 
     def dequeue(self):
         if self.is_empty():
-            raise EmptyStack('Queue is empty')
+            raise EmptyStructure('Queue is empty')
         return self._data.pop(0)
 
     def first(self):
         if self.is_empty():
-            raise EmptyStack('Queue is empty')
+            raise EmptyStructure('Queue is empty')
         return self._data[0]
 
     def is_empty(self):

@@ -1,5 +1,5 @@
 
-from stack_queue_adt import StackADT, EmptyStack
+from stack_queue_adt import StackADT, EmptyStructure
 
 
 class Stack(StackADT):
@@ -18,12 +18,12 @@ class Stack(StackADT):
 
     def pop(self):
         if self.is_empty():
-            raise EmptyStack('Stack is empty')
+            raise EmptyStructure('Stack is empty')
         return self._data.pop()
 
     def top(self):
         if self.is_empty():
-            raise EmptyStack('Stack is empty')
+            raise EmptyStructure('Stack is empty')
         return self._data[-1]
 
     def is_empty(self):

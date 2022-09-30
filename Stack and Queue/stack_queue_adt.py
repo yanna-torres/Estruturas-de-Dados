@@ -8,7 +8,7 @@ Created on Wed Sep 28 08:41:05
 from abc import ABC, abstractmethod
 
 
-class EmptyStack(Exception):
+class EmptyStructure(Exception):
     pass
 
 
