@@ -1,5 +1,38 @@
 
-from stack_queue_adt import QueueEdADT, EmptyStructure
+# from stack_queue_adt import QueueEdADT, EmptyStructure
+
+from abc import ABC, abstractmethod
+
+
+class EmptyStructure(Exception):
+    pass
+
+
+class QueueEdADT(ABC):
+
+    @abstractmethod
+    def enqueue(self, elem):
+        """Enfileira <elemento>"""
+        pass
+
+    @abstractmethod
+    def dequeue(self):
+        """Desenfileira elemento da pilha"""
+        pass
+
+    @abstractmethod
+    def first(self):
+        """Verifica qual eh o elemento que esta no inicio da fila, sem remove-lo"""
+        pass
+
+    @abstractmethod
+    def is_empty(self):
+        """Verifica se a fila esta vazia"""
+        pass
+
+    def get_size(self):
+        """Retorna o tamanho da fila"""
+        pass
 
 
 class Queue(QueueEdADT):

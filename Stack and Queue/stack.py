@@ -1,5 +1,37 @@
 
-from stack_queue_adt import StackADT, EmptyStructure
+# from stack_queue_adt import StackADT, EmptyStructure
+from abc import ABC, abstractmethod
+
+
+class EmptyStructure(Exception):
+    pass
+
+
+class StackADT(ABC):
+
+    @abstractmethod
+    def push(self, elem):
+        """Empilha <elemento>"""
+        pass
+
+    @abstractmethod
+    def pop(self):
+        """Desempilha elemento da pilha"""
+        pass
+
+    @abstractmethod
+    def top(self):
+        """Verifica qual eh o elemento que esta no topo da pilha, sem remove-lo"""
+        pass
+
+    @abstractmethod
+    def is_empty(self):
+        """Verifica se a pilha estÃ¡ vazia"""
+        pass
+
+    def get_size(self):
+        """Retorna o tamanho da pilha"""
+        pass
 
 
 class Stack(StackADT):

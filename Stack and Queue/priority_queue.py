@@ -1,5 +1,38 @@
 
-from stack_queue_adt import PriorityQueueADT, EmptyStructure
+# from stack_queue_adt import PriorityQueueADT, EmptyStructure
+from abc import ABC, abstractmethod
+
+
+class EmptyStructure(Exception):
+    pass
+
+
+class PriorityQueueADT(ABC):
+
+    @abstractmethod
+    def add(self, key, value):
+        """Adiciona uma tupla com uma chave <key> e valor <value>"""
+        pass
+
+    @abstractmethod
+    def min(self):
+        """Retorna a tupla (key, value) onde o <key> eh o menor valor, sem remover a tupla"""
+        pass
+
+    @abstractmethod
+    def remove_min(self):
+        """Remove a tupla (key, value) onde o <key> eh o menor valor"""
+        pass
+
+    @abstractmethod
+    def is_empty(self):
+        """Verifica se a lista esta vazia"""
+        pass
+
+    @abstractmethod
+    def get_size(self):
+        """Retorna o tamanho da fila"""
+        pass
 
 
 class PriorityQueue(PriorityQueueADT):
