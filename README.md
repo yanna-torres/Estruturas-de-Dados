@@ -13,6 +13,6 @@ Códigos base de diversos tipos de estrutura de dados. Todos desenvolvidos duran
 [Acesse a pasta!](/Lists)
 
 ## Pilha e Fila
-> No momento, pode ser encontrado o código básico de pilha e fila
+> Na pasta 'Stack and Queue' você pode encontrar as seguintes estruturas: pilha, fila, deque, fila com prioridade. Você também pode encontrar essas mesmas estruturas com funcionalidades a mais na pasta 'exercícios'.
 
 [Acesse a pasta!](/Stack%20and%20Queue)
