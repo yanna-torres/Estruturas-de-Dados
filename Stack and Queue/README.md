@@ -6,9 +6,9 @@
 
 ### Aqui é o repositório de todos os códigos relacionados a Fila e Pilha.
 
-- Classes ADT's relacionadas
-- Pilha
-- Fila
-- Deque (Double-ended queue)
-- Fila com prioridade (Priority queue)
-- Exercícios de implementação
+- [Classes ADT's relacionadas]()
+- [Pilha]()
+- [Fila]()
+- [Deque (Double-ended queue)]()
+- [Fila com prioridade (Priority queue)]()
+- [Exercícios de implementação e expansão das estruturas]()
