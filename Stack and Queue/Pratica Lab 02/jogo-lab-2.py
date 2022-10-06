@@ -61,8 +61,9 @@ class Rio:
                             self.__rio[pos + i] = self.__rio[i]
                             self.__rio[i] = None
                     elif pos + i < 0 and pos + i != i:
+                        new_pos = len(self.__rio) - 1
+                        print("ando comeco")
                         if self.__rio[-1]:
-                            new_pos = len(self.__rio) - 1
                             if isinstance(a, Urso):
                                 self.__movimento_urso(a, i, new_pos)
                             elif isinstance(a, Peixe):
@@ -70,9 +71,13 @@ class Rio:
                                     self.__gerar_animal(1, Peixe)
                                 else:
                                     self.__rio[i] = None
+                        else:
+                            # efetivamente ando aqui!!!
+                            self.__rio[new_pos] = self.__rio[i]
+                            self.__rio[i] = None
                     elif pos + i >= len(self.__rio) and pos + i != i:
+                        new_pos = 0
                         if self.__rio[0]:
-                            new_pos = 0
                             if isinstance(a, Urso):
                                 self.__movimento_urso(a, i, new_pos)
                             elif isinstance(a, Peixe):
@@ -80,6 +85,10 @@ class Rio:
                                     self.__gerar_animal(1, Peixe)
                                 else:
                                     self.__rio[i] = None
+                        else:
+                            # efetivamente ando aqui!!!
+                            self.__rio[new_pos] = self.__rio[i]
+                            self.__rio[i] = None
             iteracao += 1
 
     def __movimento_urso(self, a, atual, seguinte):
@@ -106,7 +115,7 @@ class Rio:
     def __str__(self):
         s = '| '
         for i in range(len(self.__rio)):
-            s = s + self.__rio[i].__str__() + ' |'
+            s = s + str(self.__rio[i]) + ' |'
         return s
 
 
