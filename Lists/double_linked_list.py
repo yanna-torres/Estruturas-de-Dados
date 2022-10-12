@@ -147,7 +147,7 @@ class DoublyLinkedList(ListADT):
             pos += 1
         return result  # se o elemento nÃ£o estiver na lista, retorna None
 
-    def replace(self, indice, elemento):
+    def replace_at(self, indice, elemento):
         found = False
         pos = 0
         aux = self._header._next

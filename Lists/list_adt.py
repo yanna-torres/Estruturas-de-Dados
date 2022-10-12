@@ -51,7 +51,7 @@ class ListADT(ABC):
         pass
 
     @abstractmethod
-    def replace(self, indice, elemento):
+    def replace_at(self, indice, elemento):
         """Substitui o elemento na posicao <indice> po <elemento>"""
         pass
 

@@ -158,7 +158,7 @@ class LinkedList(ListADT):
                 pos += 1
         return result  # devolve ou None ou o elemento na posicao
 
-    def replace(self, indice, elemento):
+    def replace_at(self, indice, elemento):
         # segue a mesma logica do metodo {element_at} e {index}, mas nao retorna nada so atualiza os valores
         found = False  # se ja encontrou o indice
         pos = 0  # pos se inicia em 0, pois nao ha caso especial nesta funcao
