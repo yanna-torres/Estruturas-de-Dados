@@ -42,4 +42,3 @@ class CircularList(ListADT):
     def replace_at(self, indice, elemento):
         pos = indice % len(self._data)
         self._data[pos] = elemento
-

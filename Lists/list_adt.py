@@ -16,6 +16,11 @@ class ListADT(ABC):
         pass
 
     @abstractmethod
+    def append(self, elemento):
+        """Adiciona um elemento ao fim da lista"""
+        pass
+
+    @abstractmethod
     def remove(self, elemento):
         """Remove primeira ocorrencia de <elemento>"""
         pass
@@ -26,8 +31,8 @@ class ListADT(ABC):
         pass
 
     @abstractmethod
-    def count(self, elemento):
-        """Conta a quantidade de <elemento> na lista"""
+    def replace_at(self, indice, elemento):
+        """Substitui o elemento na posicao <indice> po <elemento>"""
         pass
 
     @abstractmethod
@@ -36,13 +41,13 @@ class ListADT(ABC):
         pass
 
     @abstractmethod
-    def index(self, elemento):
-        """Retorna o primeiro indice de <elemento>"""
+    def count(self, elemento):
+        """Conta a quantidade de <elemento> na lista"""
         pass
 
     @abstractmethod
-    def length(self):
-        """Retorna o tamanho da lista"""
+    def index(self, elemento):
+        """Retorna o primeiro indice de <elemento>"""
         pass
 
     @abstractmethod
@@ -51,8 +56,8 @@ class ListADT(ABC):
         pass
 
     @abstractmethod
-    def replace_at(self, indice, elemento):
-        """Substitui o elemento na posicao <indice> po <elemento>"""
+    def length(self):
+        """Retorna o tamanho da lista"""
         pass
 
 
