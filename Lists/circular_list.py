@@ -16,6 +16,9 @@ class CircularList(ListADT):
     def insert(self, indice, elemento):
         self._data.insert(indice, elemento)
 
+    def append(self, elemento):
+        self._data.append(elemento)
+
     def remove(self, elemento):
         self._data.remove(elemento)
 

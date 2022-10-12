@@ -25,7 +25,6 @@ class LinkedList(ListADT):
             self._length = 0
 
     def insert(self, indice, elem):
-        """Insere <elemento> na posicao <index>"""
         # a insercao pode acontecer em tres locais: inicio, meio e fim da lista
         # separei em metodos diferentes (privados) para facilitar o entendimento
         if indice == 0:  # primeiro local de insercao no comeco da lista
@@ -36,6 +35,10 @@ class LinkedList(ListADT):
             self.__insert_in_between(indice, elem)
 
         self._length += 1  # apos inserido, o tamanho da lista eh modificado
+
+    def append(self, elemento):
+        self.__insert_at_end(elemento)
+        self._length += 1
 
     def __insert_at_beginning(self, elem):
         n = Node(elem)  # primeiro criamos o nÃ³ com o elemento a ser inserido

@@ -64,6 +64,24 @@ class DoublyLinkedList(ListADT):
 
         self._length += 1
 
+    def append(self, elemento):
+        if self.empty():  # Caso da lista vazia
+            new_node = self._DoublyNode(elemento, self._header, self._trailer)
+            self._header._next = new_node
+            self._trailer._prev = new_node
+        else:  # outros casos de inserÃ§Ã£o
+            this = self._header._next
+            successor = this._next
+            pos = 0
+            while pos < self._length - 1:
+                this = successor
+                successor = this._next
+                pos += 1
+            new_node = self._DoublyNode(elemento, this, successor)
+            this._next = new_node
+            successor._prev = new_node
+        self._length += 1
+
     def remove(self, elemento):
         if not self.empty():
             node = self._header._next
@@ -158,4 +176,3 @@ class DoublyLinkedList(ListADT):
                 aux._elem = elemento
             aux = aux._next
             pos += 1
-
