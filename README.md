@@ -16,3 +16,8 @@ Códigos base de diversos tipos de estrutura de dados. Todos desenvolvidos duran
 > Na pasta 'Stack and Queue' você pode encontrar as seguintes estruturas: pilha, fila, deque, fila com prioridade. Você também pode encontrar essas mesmas estruturas com funcionalidades a mais na pasta 'exercícios'.
 
 [Acesse a pasta!](/Stack%20and%20Queue)
+
+## Busca e Ordenação
+> Na pasta 'Search-Sort' você pode encontrar algoritmos de ordenação e vusca que podem ser implementados dentro das estruturas de dados.
+
+[Acesse a pasta!](/Search-Sort)
