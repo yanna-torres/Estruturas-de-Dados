@@ -1,4 +1,3 @@
-from functools import reduce
 
 
 def bubble_sort(input_list):
@@ -29,3 +28,42 @@ def selection_sort(input_list):
         if input_list[min_index] != input_list[i]:
             input_list[i], input_list[min_index] = input_list[min_index], input_list[i]
 
+
+def qsort(input_list):
+    if len(input_list) < 2:
+        return input_list
+    else:
+        menores = [i for i in input_list[1:] if i <= input_list[0]]
+        maiores = [i for i in input_list[1:] if i >= input_list[0]]
+        return qsort(menores) + [input_list[0]] + qsort(maiores)
+
+
+def merge_sort(input_list):
+    if len(input_list) == 1:
+        return input_list
+    else:
+        half = len(input_list) // 2
+        left = merge_sort(input_list[:half])
+        right = merge_sort(input_list[half:])
+        return merge(left, right)
+
+
+def merge(input_list1, input_list2):
+    final = []
+    while len(input_list1) != 0 and len(input_list2) != 0:
+        if input_list1[0] > input_list2[0]:
+            final.append(input_list2[0])
+            input_list2.pop(0)
+        else:
+            final.append(input_list1[0])
+            input_list1.pop(0)
+
+    while len(input_list1) != 0:
+        final.append(input_list1[0])
+        input_list1.pop(0)
+
+    while len(input_list2) != 0:
+        final.append(input_list2[0])
+        input_list2.pop(0)
+
+    return final
