@@ -1,4 +1,8 @@
 
+class EmptyStructure(Exception):
+    pass
+
+
 class Node:
     def __init__(self, data=None, parent=None, left=None, right=None):
         self._data = data
@@ -21,7 +25,7 @@ class Node:
     def set_left(self, value):
         self._left = value
 
-    def set_right(self,value):
+    def set_right(self, value):
         self._right = value
 
 
@@ -31,6 +35,8 @@ class BinaryTree:
         self._root = Node(root, parent)
 
     def insert(self, value):
+        """Inserts a new value on the tree. If the tree is empty, this value goes on the root,
+        if the value is smaller, goes to the left and if is bigger goes to the right."""
         if self._root.get_data() is None:
             self._root.set_data(value)
         elif value <= self._root.get_data():
@@ -45,6 +51,7 @@ class BinaryTree:
                 self._root.get_right().insert(value)
 
     def in_order(self):
+        """Returns all tree values in a list format, following the order: left, root, right."""
         result = []
         if self._root.get_data() is not None:
             if self._root.get_left() is not None:
@@ -52,9 +59,12 @@ class BinaryTree:
             result.append(self._root.get_data())
             if self._root.get_right() is not None:
                 result = result + self._root.get_right().in_order()
+        else:
+            raise EmptyStructure("The tree is empty")
         return result
 
     def pre_order(self):
+        """Returns all tree values in a list format, following the order: root, left, right."""
         result = []
         if self._root.get_data() is not None:
             result.append(self._root.get_data())
@@ -62,9 +72,12 @@ class BinaryTree:
                 result = result + self._root.get_left().pre_order()
             if self._root.get_right() is not None:
                 result = result + self._root.get_right().pre_order()
+        else:
+            raise EmptyStructure("The tree is empty")
         return result
 
     def post_order(self):
+        """Returns all tree values in a list format, following the order: left, right, root."""
         result = []
         if self._root.get_data() is not None:
             if self._root.get_left() is not None:
@@ -72,6 +85,8 @@ class BinaryTree:
             if self._root.get_right() is not None:
                 result = result + self._root.get_right().post_order()
             result.append(self._root.get_data())
+        else:
+            raise EmptyStructure("The tree is empty")
         return result
 
 
