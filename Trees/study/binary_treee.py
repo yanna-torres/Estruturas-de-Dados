@@ -4,6 +4,7 @@ class EmptyStructure(Exception):
 
 
 class BinaryTree:
+
     class _Node:
         def __init__(self, data=None, parent=None, left=None, right=None):
             self._data = data
@@ -86,6 +87,24 @@ class BinaryTree:
         else:
             raise EmptyStructure("The tree is empty")
         return result
+
+    def remove(self, value):
+        pass
+
+    def search(self, value):
+        pass
+
+    def is_sibling(self, value1, value2):
+        if self._root.get_data() is None:
+            raise EmptyStructure("The tree is empty")
+        else:
+            pass
+
+    def is_cousin(self, value1, value2):
+        if self._root.get_data() is None:
+            raise EmptyStructure("The tree is empty")
+        else:
+            pass
 
 
 if __name__ == "__main__":
