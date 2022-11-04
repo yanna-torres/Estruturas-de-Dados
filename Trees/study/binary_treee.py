@@ -106,6 +106,10 @@ class BinaryTree:
         else:
             pass
 
+    def left(self, parent):
+        """Returns"""
+        pass
+
 
 if __name__ == "__main__":
     bt = BinaryTree(5)
