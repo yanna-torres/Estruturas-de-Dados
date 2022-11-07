@@ -4,6 +4,7 @@ class EmptyStructure(Exception):
 
 
 class BinaryTree:
+
     class _Node:
         def __init__(self, data=None, parent=None, left=None, right=None):
             self._data = data
@@ -11,78 +12,100 @@ class BinaryTree:
             self._left = left
             self._right = right
 
-        def get_data(self):
+        def data(self):
+            """Returns the value of the main element in the node"""
             return self._data
 
-        def get_left(self):
+        def left(self):
+            """Returns the value of the left child"""
             return self._left
 
-        def get_right(self):
+        def right(self):
+            """Returns the value of the right child"""
             return self._right
 
+        def parent(self):
+            """Returns the value of the parent of the Node"""
+            return self._parent
+
         def set_data(self, value):
+            """Set the value of the main element in the node"""
             self._data = value
 
         def set_left(self, value):
+            """Set the value of the left child"""
             self._left = value
 
         def set_right(self, value):
+            """Set the value of the right child"""
             self._right = value
 
-    def __init__(self, root=None, parent=None):
-        self._root = self._Node(root, parent)
+    def __init__(self, root=None):
+        self._root = self._Node(root)
 
-    def insert(self, value):
+    def insert(self, value, root=None):
         """Inserts a new value on the tree. If the tree is empty, this value goes on the root,
         if the value is smaller, goes to the left and if is bigger goes to the right."""
-        if self._root.get_data() is None:
-            self._root.set_data(value)
-        elif value <= self._root.get_data():
-            if self._root.get_left() is None:
-                self._root.set_left(BinaryTree(value, self._root))
-            else:
-                self._root.get_left().insert(value)
-        else:
-            if self._root.get_right() is None:
-                self._root.set_right(BinaryTree(value, self._root))
-            else:
-                self._root.get_right().insert(value)
+        if root is None:
+            root = self._root
 
-    def in_order(self):
+        if root.data() is None:
+            root.set_data(value)
+        elif value <= root.data():
+            if root.left() is None:
+                root.set_left(self._Node(value, root))
+            else:
+                self.insert(value, root.left())
+        else:
+            if root.right() is None:
+                root.set_right(self._Node(value, root))
+            else:
+                self.insert(value, root.right())
+
+    def in_order(self, root=None):
         """Returns all tree values in a list format, following the order: left, root, right."""
         result = []
-        if self._root.get_data() is not None:
-            if self._root.get_left() is not None:
-                result = self._root.get_left().in_order()
-            result.append(self._root.get_data())
-            if self._root.get_right() is not None:
-                result = result + self._root.get_right().in_order()
+        if root is None:
+            root = self._root
+
+        if root.data() is not None:
+            if root.left() is not None:
+                result = self.in_order(root.left())
+            result.append(root.data())
+            if root.right() is not None:
+                result = result + self.in_order(root.right())
         else:
             raise EmptyStructure("The tree is empty")
         return result
 
-    def pre_order(self):
+    def pre_order(self, root=None):
         """Returns all tree values in a list format, following the order: root, left, right."""
         result = []
-        if self._root.get_data() is not None:
-            result.append(self._root.get_data())
-            if self._root.get_left() is not None:
-                result = result + self._root.get_left().pre_order()
-            if self._root.get_right() is not None:
-                result = result + self._root.get_right().pre_order()
+        if root is None:
+            root = self._root
+
+        if root.data() is not None:
+            result.append(root.data())
+            if root.left() is not None:
+                result = result + self.pre_order(root.left())
+            if root.right() is not None:
+                result = result + self.pre_order(root.right())
         else:
             raise EmptyStructure("The tree is empty")
         return result
 
-    def post_order(self):
+    def post_order(self, root=None):
         """Returns all tree values in a list format, following the order: left, right, root."""
         result = []
-        if self._root.get_data() is not None:
-            if self._root.get_left() is not None:
-                result = result + self._root.get_left().post_order()
-            if self._root.get_right() is not None:
-                result = result + self._root.get_right().post_order()
-            result.append(self._root.get_data())
+        if root is None:
+            root = self._root
+
+        if root.data() is not None:
+            if root.left() is not None:
+                result = result + self.post_order(root.left())
+            if root.right() is not None:
+                result = result + self.post_order(root.right())
+            result.append(root.data())
         else:
             raise EmptyStructure("The tree is empty")
         return result

@@ -13,47 +13,54 @@ class BinaryTree:
             self._right = right
 
         def data(self):
+            """Returns the value of the main element in the node"""
             return self._data
 
         def left(self):
+            """Returns the value of the left child"""
             return self._left
 
         def right(self):
+            """Returns the value of the right child"""
             return self._right
 
         def parent(self):
+            """Returns the value of the parent of the Node"""
             return self._parent
 
         def set_data(self, value):
+            """Set the value of the main element in the node"""
             self._data = value
 
         def set_left(self, value):
+            """Set the value of the left child"""
             self._left = value
 
         def set_right(self, value):
+            """Set the value of the right child"""
             self._right = value
 
     def __init__(self, root=None):
         self._root = self._Node(root)
 
-    def insert(self, value, parent=None):
+    def insert(self, value, root=None):
         """Inserts a new value on the tree. If the tree is empty, this value goes on the root,
         if the value is smaller, goes to the left and if is bigger goes to the right."""
-        if parent is None:
-            parent = self._root
+        if root is None:
+            root = self._root
 
-        if parent.data() is None:
-            parent.set_data(value)
-        elif value <= parent.data():
-            if parent.left() is None:
-                parent.set_left(self._Node(value, parent))
+        if root.data() is None:
+            root.set_data(value)
+        elif value <= root.data():
+            if root.left() is None:
+                root.set_left(self._Node(value, root))
             else:
-                self.insert(value, parent.left())
+                self.insert(value, root.left())
         else:
-            if parent.right() is None:
-                parent.set_right(self._Node(value, parent))
+            if root.right() is None:
+                root.set_right(self._Node(value, root))
             else:
-                self.insert(value, parent.right())
+                self.insert(value, root.right())
 
     def in_order(self, root=None):
         """Returns all tree values in a list format, following the order: left, root, right."""
