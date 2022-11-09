@@ -106,7 +106,7 @@ class AVLTree:
         b = self.search(value)
         if b[0] is False:
             raise NotFound("The value is not on the tree")
-        return self._remove(value, b[1].parent())
+        return self._remove(b[1])
 
     def min(self):
         """Returns the minimum value within the tree"""
@@ -182,11 +182,9 @@ class AVLTree:
         else:
             return False, f"The value {value} is not on the tree"
 
-    def _remove(self, value, root):
-        if value < root.data():
-            return self._remove(value, root.left())
-        elif value > root.data():
-            return self._remove(value, root.right())
+    def _remove(self, node):
+        if node.left() is None and node.right() is None:
+            node = None
         else:
             pass
 
