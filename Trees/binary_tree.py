@@ -40,6 +40,11 @@ class BinaryTree:
             """Set the value of the right child"""
             self._right = value
 
+        def get_node(self):
+            return {"value": self.data(), "parent": self.parent().data() if self.parent() is not None else None,
+                    "left child": self.left().data() if self.left() is not None else None,
+                    "right child": self.right().data() if self.right() is not None else None}
+
     def __init__(self, root=None):
         self._root = self._Node(root)
 
@@ -110,6 +115,31 @@ class BinaryTree:
             raise EmptyStructure("The tree is empty")
         return result
 
+    def remove(self, value, root=None):
+        if root is None:
+            root = self._root
+
+        if value < root.data():
+            return self.remove(value, root.left())
+        elif value > root.data():
+            return self.remove(value, root.right())
+        else:
+            pass
+
+    def search(self, value, root=None):
+        """Returns if a value is or not on the tree"""
+        if root is None:
+            root = self._root
+
+        if value == root.data():
+            return True, root.get_node()
+        elif value < root.data() and root.left() is not None:
+            return self.search(value, root.left())
+        elif value > root.data() and root.right() is not None:
+            return self.search(value, root.right())
+        else:
+            return False
+
 
 if __name__ == "__main__":
     bt = BinaryTree(5)
@@ -133,3 +163,6 @@ if __name__ == "__main__":
     print("")
     print("post order traverse")
     print(bt.post_order())
+    print("")
+    print("search")
+    print(bt.search(7))
