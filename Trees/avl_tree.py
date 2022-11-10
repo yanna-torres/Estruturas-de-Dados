@@ -9,11 +9,12 @@ class NotFound(Exception):
 
 class BinaryNode:
 
-    def __init__(self, data=None, parent=None, left=None, right=None):
+    def __init__(self, data, parent=None, left=None, right=None):
         self._data = data
         self._parent = parent
         self._left = left
         self._right = right
+        self._height = 1
         self._bf = 0
 
     def __repr__(self):
@@ -51,6 +52,9 @@ class BinaryNode:
         """Returns the value of the parent of the Node"""
         return self._parent
 
+    def height(self):
+        return self._height
+
     def set_data(self, value):
         """Set the value of the main element in the node"""
         self._data = value
@@ -62,6 +66,9 @@ class BinaryNode:
     def set_right(self, value):
         """Set the value of the right child"""
         self._right = value
+
+    def set_height(self, new_height):
+        self._height = new_height
     #
     # def get_node(self):
     #     """Returns a dictionary with the all the elements in the node"""
@@ -228,3 +235,4 @@ if __name__ == "__main__":
     print(bt.search(5))
     print(bt.min())
     print(bt.max())
+    print(bt.root().height())
