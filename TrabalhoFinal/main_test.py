@@ -147,7 +147,7 @@ class BarCodeNumberTree:
         right.right().set_left(BinaryNode(0))
         right.right().left().set_left(BinaryNode(3, right.right().left()))
 
-    def inoder_tree(self, root=None):
+    def _inoder_tree(self, root=None):
         """Returns all tree values in a list format, following the order: left, root, right."""
         if self.empty():
             raise EmptyStructure("The tree is empty")
@@ -157,15 +157,18 @@ class BarCodeNumberTree:
             root = self._root
 
         if root.left() is not None:
-            result = self.inoder_tree(root.left())
+            result = self._inoder_tree(root.left())
         result.append(root)
         if root.right() is not None:
-            result = result + self.inoder_tree(root.right())
+            result = result + self._inoder_tree(root.right())
 
         return result
 
+    def root(self):
+        return self._root
+
     def empty(self):
-        return self._root is None
+        return self.root() is None
 
     def search_num(self, numero):
         num = str(numero)
@@ -173,14 +176,36 @@ class BarCodeNumberTree:
 
     def _search(self, num, root):
         if len(num) <= 2:
-            return root.left()
+            return str(root.left())
         elif root.left() == int(num[1]):
             return self._search(num[1:], root.left())
         else:
             return self._search(num[1:], root.right())
 
+    def find_binary(self, num):
+        list_tree = self._inoder_tree()
+        i = list_tree.index(num)
+        elem = list_tree[i]
+        return self._binary(elem.parent()) + "1"
+
+    def _binary(self, elem):
+        if elem.parent() is None:
+            return str(elem.data())
+        else:
+            return self._binary(elem.parent()) + str(elem.data())
+
 
 if __name__ == "__main__":
     bc = BarCodeNumberTree()
-    print(bc.inoder_tree())
-    print(bc.search_num("0111101"))
+    codigo = bc.search_num("0111011")
+    codigo = codigo + bc.search_num("0110111")
+    codigo = codigo + bc.search_num("0110001")
+    codigo = codigo + bc.search_num("0100011")
+    codigo = codigo + " "
+    codigo = codigo + bc.search_num("0011001")
+    codigo = codigo + bc.search_num("0001101")
+    codigo = codigo + bc.search_num("0010011")
+    codigo = codigo + bc.search_num("0001011")
+    print(codigo)  # resultado esperado: 7854 1029
+    number = 5
+    print(bc.find_binary(number))
