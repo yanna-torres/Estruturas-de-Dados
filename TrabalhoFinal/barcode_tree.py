@@ -72,6 +72,7 @@ class BarCodeNumberTree:
         self._right_tree()
 
     def _left_tree(self):
+        """Metodo privado para montar o lado esquerdo da arvore"""
         left = self._root.left()
         left.set_left(BinaryNode(0, left))
         left.set_right(BinaryNode(1, left))
@@ -108,6 +109,7 @@ class BarCodeNumberTree:
         left.left().set_left(BinaryNode(1, left.left()))
 
     def _right_tree(self):
+        """Metodo privado para montar o lado direito da arvore"""
         right_main = self._root.right()
         right_main.set_left(BinaryNode(0, right_main))
         right_main.set_right(BinaryNode(1, right_main))
@@ -148,7 +150,7 @@ class BarCodeNumberTree:
         right.right().left().set_left(BinaryNode(3, right.right().left()))
 
     def _inoder_tree(self, root=None):
-        """Returns all tree values in a list format, following the order: left, root, right."""
+        """Retorna todos os valores da arvore, seguindo esta ordem: left, root, right."""
         if self.empty():
             raise EmptyStructure("The tree is empty")
 
@@ -165,12 +167,15 @@ class BarCodeNumberTree:
         return result
 
     def root(self):
+        """Retorna o valor que esta na raiz da arvore"""
         return self._root
 
     def empty(self):
+        """Retorna se a arvore esta vazia ou nao"""
         return self.root() is None
 
     def search_num(self, numero):
+        """Busca um numero binario e retorna seu valor em decimal"""
         num = str(numero)
         return self._search(num, self._root)
 
@@ -183,6 +188,7 @@ class BarCodeNumberTree:
             return self._search(num[1:], root.right())
 
     def find_binary(self, num):
+        """Busca um numero decimal e retorna seu valor em binario"""
         list_tree = self._inoder_tree()
         i = list_tree.index(num)
         elem = list_tree[i]
@@ -206,6 +212,8 @@ if __name__ == "__main__":
     codigo = codigo + bc.search_num("0001101")
     codigo = codigo + bc.search_num("0010011")
     codigo = codigo + bc.search_num("0001011")
+    print("buscador de número binário -> decimal")
     print(codigo)  # resultado esperado: 7854 1029
-    number = 5
-    print(bc.find_binary(number))
+    print("")
+    print("buscador de número decimal -> binário")
+    print(f"7854 1029 = {bc.find_binary(7)} {bc.find_binary(8)} {bc.find_binary(5)} {bc.find_binary(4)}  {bc.find_binary(1)} {bc.find_binary(0)} {bc.find_binary(2)} {bc.find_binary(9)}")

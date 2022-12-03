@@ -20,8 +20,6 @@ FPS = 60
 RADIUS = 13
 
 
-
-
 def setup():
     pygame.display.set_caption("Trabalho Final - Yanna")
     WIN.fill(BACKGROUND_COLOR)
