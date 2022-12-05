@@ -19,12 +19,14 @@ FPS = 60
 # CIRCLE RADIUS
 RADIUS = 13
 
+FONT = pygame.font.SysFont('cambriamath', 20, True)
 
 def setup():
     pygame.display.set_caption("Trabalho Final - Yanna")
     WIN.fill(BACKGROUND_COLOR)
     pygame.display.update()
     draw_tree()
+    draw_barcode()
     pygame.display.update()
 
 
@@ -142,42 +144,49 @@ def draw_lines_tree():
 def draw_numbers_tree():
     # f = pygame.font.get_fonts()
     # print(f)
-    font = pygame.font.SysFont('cambriamath', 20, True)
-    number = font.render('0', True, BLACK)
+    number = FONT.render('0', True, BLACK)
     WIN.blit(number, (175, 720))
 
-    number = font.render('1', True, BLACK)
+    number = FONT.render('1', True, BLACK)
     WIN.blit(number, (375, 720))
 
-    number = font.render('2', True, BLACK)
+    number = FONT.render('2', True, BLACK)
     WIN.blit(number, (265, 720))
 
-    number = font.render('3', True, BLACK)
+    number = FONT.render('3', True, BLACK)
     WIN.blit(number, (955, 720))
 
-    number = font.render('4', True, BLACK)
+    number = FONT.render('4', True, BLACK)
     WIN.blit(number, (630, 720))
 
-    number = font.render('5', True, BLACK)
+    number = FONT.render('5', True, BLACK)
     WIN.blit(number, (790, 720))
 
-    number = font.render('6', True, BLACK)
+    number = FONT.render('6', True, BLACK)
     WIN.blit(number, (720, 720))
 
-    number = font.render('7', True, BLACK)
+    number = FONT.render('7', True, BLACK)
     WIN.blit(number, (910, 720))
 
-    number = font.render('8', True, BLACK)
+    number = FONT.render('8', True, BLACK)
     WIN.blit(number, (835, 720))
 
-    number = font.render('9', True, BLACK)
+    number = FONT.render('9', True, BLACK)
     WIN.blit(number, (65, 720))
 
 
+def draw_barcode():
+    pygame.draw.rect(WIN, WHITE, pygame.Rect(30, 30, 10, 60))
+    pygame.draw.rect(WIN, BLACK, pygame.Rect(40, 30, 10, 60))
+    pygame.draw.rect(WIN, BLACK, pygame.Rect(50, 30, 10, 60))
+    pygame.draw.rect(WIN, BLACK, pygame.Rect(60, 30, 10, 60))
+    pygame.draw.rect(WIN, WHITE, pygame.Rect(70, 30, 10, 60))
+    pygame.draw.rect(WIN, BLACK, pygame.Rect(80, 30, 10, 60))
+    pygame.draw.rect(WIN, BLACK, pygame.Rect(90, 30, 10, 60))
+    number = FONT.render('7', True, BLACK)
+    WIN.blit(number, (60, 90))
 
 
 if __name__ == "__main__":
-    # codes = BarCodeNumberTree()
-    # print(codes.inoder_tree())
     setup()
     main()
