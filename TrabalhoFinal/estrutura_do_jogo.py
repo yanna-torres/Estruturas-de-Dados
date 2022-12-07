@@ -39,8 +39,9 @@ def main():
     reader_x = WIDTH/2
     reader_y = 150
     move_scanner = True
-    case = 7
+    case = 0
     while run:
+        pygame.display.update()
         clock.tick(FPS)
         if case != 7:
             animation(new_s_x, reader_x, reader_y)
@@ -50,7 +51,6 @@ def main():
             number = HEADING.render('7', True, BLACK)
             WIN.blit(message, (150, HEIGHT/2 - 100))
             WIN.blit(number, (WIDTH / 2-10, HEIGHT / 2))
-            pygame.display.update()
 
         if move_scanner:
             new_s_x += 0.5
@@ -120,12 +120,10 @@ def main():
 
 def draw_tree():
     WIN.fill(BACKGROUND_COLOR)
-    pygame.display.update()
     draw_barcode()
     draw_lines_tree()
     draw_circles_tree()
     draw_numbers_tree()
-    pygame.display.update()
 
 
 def draw_circles_tree():
@@ -279,7 +277,6 @@ def animation(s_x, r_x, r_y):
     draw_tree()
     scanner(s_x, Y)
     reader(r_x, r_y)
-    pygame.display.update()
 
 
 if __name__ == "__main__":
