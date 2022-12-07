@@ -1,5 +1,4 @@
 import pygame
-import os
 
 pygame.font.init()
 
@@ -12,6 +11,7 @@ BACKGROUND_COLOR = 53, 143, 101
 WHITE = 255, 255, 255
 BLACK = 0, 0, 0
 GREY_150 = 150, 150, 150
+RED = 255, 0, 0
 
 # FPS do 'jogo'
 FPS = 60
@@ -20,21 +20,97 @@ FPS = 60
 RADIUS = 13
 
 FONT = pygame.font.SysFont('cambriamath', 20, True)
+HEADING = pygame.font.SysFont('cambriamath', 35, True)
+
+x, Y = 15, 60
+
 
 def setup():
     pygame.display.set_caption("Trabalho Final - Yanna")
-    WIN.fill(BACKGROUND_COLOR)
-    pygame.display.update()
     draw_tree()
-    draw_barcode()
+    scanner(x, Y)
     pygame.display.update()
 
 
 def main():
     clock = pygame.time.Clock()
     run = True
+    new_s_x = 15
+    reader_x = WIDTH/2
+    reader_y = 150
+    move_scanner = True
+    case = 7
     while run:
         clock.tick(FPS)
+        if case != 7:
+            animation(new_s_x, reader_x, reader_y)
+        else:
+            WIN.fill(BACKGROUND_COLOR)
+            message = HEADING.render('O número presente no código de barras é:', True, BLACK)
+            number = HEADING.render('7', True, BLACK)
+            WIN.blit(message, (150, HEIGHT/2 - 100))
+            WIN.blit(number, (WIDTH / 2-10, HEIGHT / 2))
+            pygame.display.update()
+
+        if move_scanner:
+            new_s_x += 0.5
+
+        if (new_s_x - 5) % 10 == 0 and new_s_x > 30:
+            move_scanner = False
+
+            if case == 0:
+                reader_y += 0.5
+
+                if reader_y == 250:
+                    case = 1
+                    move_scanner = True
+
+            elif case == 1:
+                reader_x += 0.5
+                reader_y = ((40*reader_x) / 133) + (13250 / 133)
+
+                if reader_x == 766:
+                    case = 2
+                    move_scanner = True
+
+            elif case == 2:
+                reader_x += 0.5
+                reader_y = ((10*reader_x) / 13) - (3370 / 13)
+
+                if reader_x == 870:
+                    case = 3
+                    move_scanner = True
+
+            elif case == 3:
+                reader_x += 0.5
+                reader_y = ((40*reader_x) / 21) - (8730 / 7)
+
+                if reader_x == 933:
+                    case = 4
+                    move_scanner = True
+
+            elif case == 4:
+                reader_x -= 0.5
+                reader_y = -(40/9)*(reader_x - 933) + 530
+
+                if reader_x == 915:
+                    case = 5
+                    move_scanner = True
+
+            elif case == 5:
+                reader_y += 0.5
+
+                if reader_y == 690:
+                    case = 6
+
+            elif case == 6:
+                reader_y += 0.5
+
+                if reader_y == 715:
+                    move_scanner = True
+                    case = 7
+
+        # Para o programa parar quando
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 run = False
@@ -43,9 +119,13 @@ def main():
 
 
 def draw_tree():
+    WIN.fill(BACKGROUND_COLOR)
+    pygame.display.update()
+    draw_barcode()
     draw_lines_tree()
     draw_circles_tree()
     draw_numbers_tree()
+    pygame.display.update()
 
 
 def draw_circles_tree():
@@ -185,6 +265,21 @@ def draw_barcode():
     pygame.draw.rect(WIN, BLACK, pygame.Rect(90, 30, 10, 60))
     number = FONT.render('7', True, BLACK)
     WIN.blit(number, (60, 90))
+
+
+def scanner(pos_x, pos_y):
+    pygame.draw.circle(WIN, RED, (pos_x, pos_y), 5, 5)
+
+
+def reader(pos_x, pos_y):
+    pygame.draw.circle(WIN, RED, (pos_x, pos_y), 8, 8)
+
+
+def animation(s_x, r_x, r_y):
+    draw_tree()
+    scanner(s_x, Y)
+    reader(r_x, r_y)
+    pygame.display.update()
 
 
 if __name__ == "__main__":
